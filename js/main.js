@@ -1,12 +1,20 @@
 let color = "black";
+let slider = document.getElementById("boardSizeSlider");
+let sizeOutput = document.getElementById("boardSizeOutput");
+let defaultSize = 16;
 
+
+//Creates the board of divs and repeats till the divs are created
 function populateBoard(BoardSize){
     let board = document.querySelector('.board');
     let squares = board.querySelectorAll('div');
     squares.forEach(div=> div.remove());
     board.style.gridTemplateColumns = `repeat(${BoardSize}, 1fr)`;
     board.style.gridTemplateRows = `repeat(${BoardSize}, 1fr)`;
-
+    slider.oninput = function() {
+        sizeOutput.innerHTML = this.value;
+      }
+    
     let amount = BoardSize * BoardSize;
     for(let i = 0; i < amount; i++)
     {
@@ -17,27 +25,24 @@ function populateBoard(BoardSize){
     }
 }
 
-populateBoard(16);
+//Run the function to create the board and start the program
+populateBoard(defaultSize);
+sizeOutput.innerHTML = defaultSize;
 
+//Changes the size of the divs on the board then reloads the board
 function changeSize(input)
 {
-    if(input < 2 || input > 100)
-    {
-        alert("Enter a number between 2 and 100");
-    }
-    else
-    {
-        populateBoard(input);
-    }
-    
+    populateBoard(input);
 }
 
+//Changes the color of the background of each div when the mouse is hovered over
 function colorSquare()
 {
     this.style.backgroundColor = color;
 }
 
-function changeColor()
+//chnages the background color of each div
+function changeColor(colorChange)
 {
-    
+    color = colorChange;
 }

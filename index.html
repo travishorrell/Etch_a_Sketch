@@ -16,14 +16,15 @@
 
             </div>
             <div class="buttons">
-                <button>Easer</button>
-                <button>Black</button>
-                <button>Gray</button>
-                <button>Reset</button>
+                <button onclick="changeColor('white')">Easer</button>
+                <button onclick="changeColor('black')">Black</button>
+                <button onclick="changeColor('gray')">Gray</button>
+                <button onclick="clearBoard()">Reset</button>
             </div>
             <div class="setSize">
-                <input type="text" placeholder="Set Size" value="16" onchange="changeSize(this.value)">
-                <button>Set Size</button>
+                <!--<input type="text" placeholder="Set Size" value="16" onchange="changeSize(this.value)">-->
+                <p>Board Size:<span id="boardSizeOutput"></span></p>
+                <input id="boardSizeSlider" type="range" min="5" max="100" value="16" onchange="changeSize(this.value)">
             </div>
         </div>
     </div>
