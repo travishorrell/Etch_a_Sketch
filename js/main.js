@@ -44,5 +44,26 @@ function colorSquare()
 //chnages the background color of each div
 function changeColor(colorChange)
 {
-    color = colorChange;
+    //Creates a random HEX code for a color
+    const randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+    if(colorChange == 0)
+    {
+        color = 'white';
+    }
+    else if(colorChange == 1)
+    {
+        color = 'black';
+    }
+    else if(colorChange == 2)
+    {
+        color = randomColor;
+    }
+    
+}
+
+function clearBoard()
+{
+    populateBoard(defaultSize);
+    sizeOutput.innerHTML = defaultSize;
+    slider.value = 16;
 }
