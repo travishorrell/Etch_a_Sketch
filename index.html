@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Sketch Board</title>
 </head>
 <body>
-    
+    <div class="flex_container">
+        <div class="title">
+            <h1>The Odin Project | Sketch Pad</h1>
+        </div>
+        <div class="content">
+            <div class="board"></div>
+            <div class="buttons">
+                <button onclick="changeColor(0)">Easer</button>
+                <button onclick="changeColor(1)">Black</button>
+                <button onclick="changeColor(2)">Random Colors</button>
+                <button onclick="clearBoard()">Reset</button>
+            </div>
+            <div class="setSize">
+                <p>Board Size: <span id="boardSizeOutput"></span></p>
+                <input class="slider" id="boardSizeSlider" type="range" min="5" max="100" value="16" onchange="changeSize(this.value)">
+            </div>
+        </div>
+    </div>
 </body>
+
+<script src="js/main.js"></script>
 </html>
